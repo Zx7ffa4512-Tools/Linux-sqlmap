@@ -33,7 +33,7 @@ Sqlmap
 
 
 好，跑数据库就是这么简单，于是呢来一个稍微有点干货的例子：<br/>
- http://www.xxx.com/login.asp有post注入，我想日了,但是我不想出去拷贝post数据，很麻烦，我想让sqlmap自动跑post注入<br/>
+网站http://www.xxx.com/login.asp有post注入，我想日了,但是我不想出去拷贝post数据，很麻烦，我想让sqlmap自动跑post注入<br/>
 
         sqlmap -u "http://www.xxx.com/login.asp" --forms
 很好，上面的命令成功的帮我跑了post注入，并且找到了post的注入点jjj=123，于是我用的命令看看数据库<br/>
