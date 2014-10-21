@@ -73,7 +73,8 @@ Sqlmap
 为了避免各位看英文看到吐，大概总结下：<br/>
 ```
 * Target:                               字面意思，目标，那么就是确定目标的
-* Request:                              字面意思，请求，就是定义请求内容的，比如post数据，http头，cookie注入，http头污染等等
+* Request:                              字面意思，请求，就是定义请求内容的，比如post数据，http头，cookie注入，
+                                                http头污染等等
 * Optimization：                        字面意思，调节性能，等等
 * Injection:                            字面意思，注入的设置内容基本在这里，比如指定注入点，指定db，指定系统，等等
 * Detection:                            基本就是用在确认注入范围，寻找注入点区域，这些
@@ -86,6 +87,6 @@ Sqlmap
 * Operating system access:              主要用在对系统操作，例如os-shell 以及 后续的连接metasploit 实现后渗透攻击
 * windows registry access:              基本就是注册表操作了
 * General:                              字面意思，综合的内容，一些特殊的功能实现，我在这里
-                                        找到了crawl batch这些非常好用的参数
+                                                找到了crawl batch这些非常好用的参数
 * Miscellaneous:                        目测高端应用，还没怎么用过，求大神指教
 ```
