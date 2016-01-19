@@ -114,8 +114,8 @@
         
 20. 自定义payload
 
-        Options: --prefix and --postfix
-        python sqlmap.py -u "http://192.168.1.121/sqlmap/mysql/get_str_brackets.php?id=1" -v 3 -p "id" --prefix "'" --postfix "AND 'test'='test"
+        Options: --prefix and --suffix
+        python sqlmap.py -u "http://192.168.1.121/sqlmap/mysql/get_str_brackets.php?id=1" -v 3 -p "id" --prefix "'" --suffix "AND 'test'='test"
 
 21. --os-xx系列命令，可以执行系统命令，同时还发现了牛逼的xpcmdshell
 
