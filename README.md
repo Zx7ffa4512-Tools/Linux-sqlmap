@@ -5,7 +5,9 @@
         1.get型:        sqlmap -u "http://xxx.xx.xxx/xx.xxx?xx=xxx"
         2.post型:       sqlmap -u "http://xxx.xx.xxx/xx.xxx" --data="xxxx=xxxx&xxxx=xxx"
         3.cookie类注入: sqlmap -u "http://xxx.xx.xxx/xx.xxx?xx=xxx" --cookie="xxx=xxx&xxx=xxx" --level=2
-                        (默认情况下SQLMAP只支持GET/POST参数的注入测试，但是当使用–level 参数且数值>=2的时候也会检查cookie时面的参数，当>=3的时候将检查User-agent和Referer，那么这就很简单了，我 们直接在原有的基础上面加上 –level 2 即可)
+                        (默认情况下SQLMAP只支持GET/POST参数的注入测试，但是当使用–level
+                        参数且数值>=2的时候也会检查cookie时面的参数，当>=3的时候将检查User-agent和Referer，
+                        那么这就很简单了，我 们直接在原有的基础上面加上 –level 2 即可)
                         
         4.伪静态      : sqlmap -u "http://a.b.c/test/id/1*"
         5.包文件      : sqlmap -u "url" -r 1.txt 
