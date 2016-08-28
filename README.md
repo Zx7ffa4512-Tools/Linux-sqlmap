@@ -11,10 +11,10 @@
                         
         4.伪静态      : sqlmap -u "http://a.b.c/test/id/1*"
         5.包文件      : sqlmap -u "url" -r 1.txt 
-        		  （文件内容为http头以及data数据）
+        			（文件内容为http头以及data数据）
         		
         6.url文件     : sqlmap -u "url" -m url.txt
-        		  （文件内容为每行一个url）
+        			（文件内容为每行一个url）
 
 2. 需要数据库
 
