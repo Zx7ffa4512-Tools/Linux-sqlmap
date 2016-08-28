@@ -142,8 +142,16 @@
 
         --batch 
         
+23. 避免过多的错误请求被屏蔽
+
+        参数：--safe-url,--safe-freq
+        1、--safe-url：提供一个安全不错误的连接，每隔一段时间都会去访问一下。
+	2、--safe-freq：提供一个安全不错误的连接，每次测试请求之后都会再访问一边安全连接。
+	
+	有的web应用程序会在你多次访问错误的请求时屏蔽掉你以后的所有请求，这样在sqlmap进行探测或者注入的时候可能造成错误请求而触发这个策略，导致以后无法进行。
         
-24. 不那么常用的
+        
+99. 不那么常用的
 
         a. 只列出用户自己新建的数据库和表的内容
                 python sqlmap.py -u "http://192.168.1.121/sqlmap/mssql/get_int.php?id=1" --dump-all --exclude-sysdbs -v 0
@@ -154,6 +162,9 @@
         d. 页面比较
                 python sqlmap.py -u "http://192.168.1.121/sqlmap/mysql/get_int_refresh.php?id=1" --string "luther" -v 1
                 python sqlmap.py -u "http://192.168.1.121/sqlmap/mysql/get_int_refresh.php?id=1" --regexp "<td>lu[\w][\w]er" -v
+                (默认情况下sqlmap通过判断返回页面的不同来判断真假，但有时候这会产生误差，因为有的页面在每次刷新的时候都会返回不同的代码，比如页面当中包含一个动态的广告或者其他内容，这会导致sqlmap的误判。此时用户可以提供一个字符串或者一段正则匹配，在原始页面与真条件下的页面都存在的字符串，而错误页面中不存在（使用--string参数添加字符串，--regexp添加正则），同时用户可以提供一段字符串在原始页面与真条件下的页面都不存在的字符串，而错误页面中存在的字符串（--not-string添加）。用户也可以提供真与假条件返回的HTTP状态码不一样来注入，例如，响应200的时候为真，响应401的时候为假，可以添加参数--code=200。)
+                
+                
         e. 排除网站的内容
                 python sqlmap.py -u "http://192.168.1.121/sqlmap/mysql/get_int_refresh.php?id=1" --excl-reg "Dynamic content: ([\d]+)"
         f. 多语句测试，php内嵌函数mysql_query(),不支持多语句
